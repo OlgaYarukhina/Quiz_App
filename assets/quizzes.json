@@ -1,0 +1,50 @@
+[
+    {
+      "title": "Math Quiz",
+      "questions": [
+        {
+          "question": "What is 2 + 2?",
+          "answers": ["3", "4", "5"],
+          "correctAnswer": "4"
+        },
+        {
+            "question": "What is 20 + 2?",
+            "answers": ["23", "24", "22"],
+            "correctAnswer": "22"
+          }
+    
+      ]
+    },
+    {
+      "title": "Science Quiz",
+      "questions": [
+        {
+          "question": "What is the boiling point of water?",
+          "answers": ["90°C", "100°C", "110°C"],
+          "correctAnswer": "100°C"
+        },
+        {
+            "question": "What is the boiling point of water?",
+            "answers": ["90°C", "100°C", "110°C"],
+            "correctAnswer": "100°C"
+          }
+      ]
+    },
+    {
+        "title": "IT Quiz",
+        "questions": [
+          {
+            "question": "What is the boiling point of water?",
+            "answers": ["90°C", "100°C", "110°C"],
+            "correctAnswer": "100°C"
+          },
+          {
+              "question": "What is the boiling point of water?",
+              "answers": ["90°C", "100°C", "110°C"],
+              "correctAnswer": "100°C"
+            }
+        ]
+      }
+
+  ]
+  
