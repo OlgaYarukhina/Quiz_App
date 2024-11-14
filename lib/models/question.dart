@@ -16,12 +16,4 @@ class Question {
       correctAnswer: json['correctAnswer'],
     );
   }
-
-  // Map<String, dynamic> toJson() {
-  //   return {
-  //     'question': question,
-  //     'answers': answers,
-  //     'correctAnswer': correctAnswer,
-  //   };
-  // }
 }

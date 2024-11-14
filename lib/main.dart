@@ -24,14 +24,11 @@ class QuizApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Quiz',
-      theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-      ),
       home: HomeScreen(quizzes: quizzes),
       routes: {
-        '/question': (context) => QuestionScreen(),
+        '/question': (context) => const QuestionScreen(),
         '/result': (context) => const ResultScreen(),
-        '/history': (context) => const HistoryScreen(),
+        '/history': (context) => HistoryScreen(quizzes: quizzes),
       },
     );
   }

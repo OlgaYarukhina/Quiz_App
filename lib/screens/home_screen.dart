@@ -11,23 +11,33 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Quiz Application'),
-      ),
-      body: ListView.builder(
-        itemCount: quizzes.length,
-        itemBuilder: (context, index) {
-          final quiz = quizzes[index];
-          return ListTile(
-            title: Text(quiz.title),
-            onTap: () {
-              // Передаємо вибраний квіз на екран запитань
-              Navigator.pushNamed(
-                context,
-                '/question',
-                arguments: quiz, // Передаємо квіз як аргумент
-              );
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.history),
+            onPressed: () {
+              Navigator.pushNamed(context, '/history');
             },
-          );
-        },
+          ),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView.builder(
+          itemCount: quizzes.length,
+          itemBuilder: (context, index) {
+            final quiz = quizzes[index];
+            return Card(
+              margin: const EdgeInsets.symmetric(vertical: 8.0),
+              child: ListTile(
+                title: Text(quiz.title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                trailing: const Icon(Icons.arrow_forward_ios, size: 18),
+                onTap: () {
+                  Navigator.pushNamed(context, '/question', arguments: quiz);
+                },
+              ),
+            );
+          },
+        ),
       ),
     );
   }

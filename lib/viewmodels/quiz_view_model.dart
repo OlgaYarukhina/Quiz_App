@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import '../models/question.dart';
-import '../models/quiz.dart'; 
-
-
+import 'package:quiz_app/models/question.dart';
+import 'package:quiz_app/models/quiz.dart';
 
 class QuizViewModel extends ChangeNotifier {
-  Quiz currentQuiz; 
-  int _currentQuestionIndex = 0; 
-  int _correctAnswers = 0; 
+  Quiz currentQuiz;
+  int _currentQuestionIndex = 0;
+  int _correctAnswers = 0;
 
   QuizViewModel(this.currentQuiz);
 
   int get currentQuestionIndex => _currentQuestionIndex;
   int get correctAnswers => _correctAnswers;
   Question get currentQuestion => currentQuiz.questions[_currentQuestionIndex];
-  bool get isLastQuestion => _currentQuestionIndex == currentQuiz.questions.length - 1;
+  bool get isLastQuestion =>
+      _currentQuestionIndex == currentQuiz.questions.length - 1;
 
   // Method for checking answer and update the counter
   void answerQuestion(String selectedAnswer) {
@@ -24,10 +23,10 @@ class QuizViewModel extends ChangeNotifier {
     if (!isLastQuestion) {
       _currentQuestionIndex++;
     }
-    notifyListeners(); 
+    notifyListeners();
   }
 
-    void updateQuiz(Quiz newQuiz) {
+  void updateQuiz(Quiz newQuiz) {
     currentQuiz = newQuiz;
     notifyListeners();
   }
@@ -38,8 +37,7 @@ class QuizViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Method to get the quiz result
   getQuizResult() {
-    return _correctAnswers; 
+    return _correctAnswers;
   }
 }

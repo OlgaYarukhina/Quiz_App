@@ -17,11 +17,4 @@ class Quiz {
           .toList(),
     );
   }
-
-  // Map<String, dynamic> toJson() {
-  //   return {
-  //     'title': title,
-  //     'questions': questions.map((question) => question.toJson()).toList(),
-  //   };
-  // }
 }
