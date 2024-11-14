@@ -31,7 +31,7 @@ class HistoryScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final quiz = history[index];
                 final resultText = quiz['result'] != -1
-                    ? 'Score: ${quiz['result']}'
+                    ? 'Score: ${quiz['result']}/${quizzes.firstWhere((q) => q.title == quiz['title']).numberOfQuestions}'
                     : 'Квіз не пройдено';
 
                 return Card(

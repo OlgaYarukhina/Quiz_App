@@ -1,6 +1,7 @@
 [
     {
       "title": "Math Quiz",
+      "numberOfQuestions": 2,
       "questions": [
         {
           "question": "What is 2 + 2?",
@@ -8,15 +9,15 @@
           "correctAnswer": "4"
         },
         {
-            "question": "What is 20 + 2?",
-            "answers": ["23", "24", "22"],
-            "correctAnswer": "22"
-          }
-    
+          "question": "What is 5 × 6?",
+          "answers": ["28", "30", "32"],
+          "correctAnswer": "30"
+        }
       ]
     },
     {
       "title": "Science Quiz",
+      "numberOfQuestions": 2,
       "questions": [
         {
           "question": "What is the boiling point of water?",
@@ -24,27 +25,37 @@
           "correctAnswer": "100°C"
         },
         {
-            "question": "What is the boiling point of water?",
-            "answers": ["90°C", "100°C", "110°C"],
-            "correctAnswer": "100°C"
-          }
+          "question": "What is the chemical symbol for water?",
+          "answers": ["H2O", "CO2", "O2"],
+          "correctAnswer": "H2O"
+        }
       ]
     },
     {
-        "title": "IT Quiz",
-        "questions": [
-          {
-            "question": "What is the boiling point of water?",
-            "answers": ["90°C", "100°C", "110°C"],
-            "correctAnswer": "100°C"
-          },
-          {
-              "question": "What is the boiling point of water?",
-              "answers": ["90°C", "100°C", "110°C"],
-              "correctAnswer": "100°C"
-            }
-        ]
-      }
-
+      "title": "IT Quiz",
+      "numberOfQuestions": 4,
+      "questions": [
+        {
+          "question": "What package is commonly used for state management in Flutter?",
+          "answers": ["provider", "setState", "flutter_bloc"],
+          "correctAnswer": "provider"
+        },
+        {
+          "question": "Which widget is used to display a list of scrollable items in Flutter?",
+          "answers": ["ListView", "GridView", "Column"],
+          "correctAnswer": "ListView"
+        },
+        {
+          "question": "What is the main function used to start a Flutter app?",
+          "answers": ["main()", "runApp()", "startApp()"],
+          "correctAnswer": "runApp()"
+        },
+        {
+          "question": "Which Flutter widget is used for handling user input in a text field?",
+          "answers": ["TextField", "TextFormField", "InputField"],
+          "correctAnswer": "TextField"
+        }
+      ]
+    }
   ]
   
