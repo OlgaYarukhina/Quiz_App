@@ -15,7 +15,7 @@ class QuizViewModel extends ChangeNotifier {
   bool get isLastQuestion =>
       _currentQuestionIndex == currentQuiz.questions.length - 1;
 
-  // Method for checking answer and update the counter
+  // Метод для перевірки відповідей
   void answerQuestion(String selectedAnswer) {
     if (selectedAnswer == currentQuestion.correctAnswer) {
       _correctAnswers++;
