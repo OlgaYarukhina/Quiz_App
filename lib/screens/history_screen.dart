@@ -1,61 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/models/quiz.dart';
 import 'package:quiz_app/services/quiz_storage.dart';
+import 'package:quiz_app/widgets/quiz_card.dart';
 
 class HistoryScreen extends StatelessWidget {
   final List<Quiz> quizzes;
+
   const HistoryScreen({super.key, required this.quizzes});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Quiz History')),
+      appBar: AppBar(
+        title: const Text('Quiz History'),
+        elevation: 4.0,
+      ),
       body: FutureBuilder<Map<String, int>>(
-        future: QuizStorage.getAllQuizResults(quizzes.map((q) => q.title).toList()),
+        future: QuizStorage.getAllQuizResults(
+          quizzes.map((q) => q.title).toList(),
+        ),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
+
           if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(child: Text('No history available.'));
+            return const Center(
+              child: Text(
+                'No history available.',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+              ),
+            );
           }
 
-          final history = snapshot.data!.entries
-              .map((entry) => {'title': entry.key, 'result': entry.value})
-              .toList();
+          final history = snapshot.data!;
 
           return Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: ListView.builder(
-              itemCount: history.length,
+            padding: const EdgeInsets.all(14.0),
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 8.0,
+                mainAxisSpacing: 8.0,
+                childAspectRatio: 3 / 2,
+              ),
+              itemCount: quizzes.length,
               itemBuilder: (context, index) {
-                final quiz = history[index];
-                final resultText = quiz['result'] != -1
-                    ? 'Score: ${quiz['result']}/${quizzes.firstWhere((q) => q.title == quiz['title']).numberOfQuestions}'
-                    : 'Квіз не пройдено';
+                final quiz = quizzes[index];
+                final result = history[quiz.title] ?? -1; // -1 означає "Not completed"
 
-                return Card(
-                  margin: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          quiz['title'] as String,
-                          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                        ),
-                        Text(
-                          resultText,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: quiz['result'] != -1 ? Colors.green : Colors.red,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                return QuizCard(
+                  quiz: quiz,
+                  isHistory: true,
+                  score: result,
+                  onTap: () {
+                    Navigator.pushNamed(context, '/question', arguments: quiz);
+                  },
                 );
               },
             ),

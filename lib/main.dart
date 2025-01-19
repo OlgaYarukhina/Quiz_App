@@ -5,6 +5,7 @@ import 'package:quiz_app/screens/result_screen.dart';
 import 'package:quiz_app/screens/history_screen.dart';
 import 'package:quiz_app/models/quiz.dart';
 import 'package:quiz_app/services/question_loader.dart';
+import 'package:quiz_app/core/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,6 +25,7 @@ class QuizApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Quiz',
+      theme: darkTheme,
       home: HomeScreen(quizzes: quizzes),
       routes: {
         '/question': (context) => const QuestionScreen(),

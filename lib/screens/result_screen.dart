@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/core/constants.dart';
 import 'package:quiz_app/services/quiz_storage.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -24,11 +25,12 @@ class ResultScreen extends StatelessWidget {
           children: [
             Text(
               'Your Score: $score',
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(color: AppColors.colors['text1'], fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.colors['button'],
                 padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                 textStyle: const TextStyle(fontSize: 18),
               ),

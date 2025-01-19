@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/core/constants.dart';
 import 'package:quiz_app/models/quiz.dart';
 
 class QuestionScreen extends StatefulWidget {
@@ -9,7 +10,7 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class QuestionScreenState extends State<QuestionScreen>
-    with TickerProviderStateMixin {
+  with TickerProviderStateMixin {
   late Quiz quiz;
   int currentQuestionIndex = 0;
   int correctAnswers = 0;
@@ -49,11 +50,9 @@ class QuestionScreenState extends State<QuestionScreen>
     _answerControllers = [];
 
     // Ініціалізація нових контролерів
-    for (int i = 0;
-        i < quiz.questions[currentQuestionIndex].answers.length;
-        i++) {
+    for (int i = 0; i < quiz.questions[currentQuestionIndex].answers.length; i++) {
       final controller = AnimationController(
-        duration: const Duration(milliseconds: 3000),
+        duration: const Duration(milliseconds: 2000),
         vsync: this,
       );
       _answerControllers.add(controller);
@@ -61,7 +60,7 @@ class QuestionScreenState extends State<QuestionScreen>
 
     // Запуск анімації для варіантів відповідей 
     for (int i = 0; i < _answerControllers.length; i++) {
-      Future.delayed(Duration(milliseconds: 1000 * i), () {
+      Future.delayed(Duration(milliseconds: 400 * i), () {
         if (mounted) _answerControllers[i].forward();
       });
     }
@@ -93,7 +92,7 @@ class QuestionScreenState extends State<QuestionScreen>
               child: Text(
                 question.question,
                 style:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                     TextStyle(color: AppColors.colors['text1'], fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
             const SizedBox(height: 20),
@@ -107,6 +106,7 @@ class QuestionScreenState extends State<QuestionScreen>
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.colors['button'],
                       minimumSize: const Size(double.infinity, 50),
                       textStyle: const TextStyle(fontSize: 18),
                     ),
