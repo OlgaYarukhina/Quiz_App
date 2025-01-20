@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static Map<String, Color> colors = {
-    'text1': const Color.fromARGB(255, 239, 87, 87),
+    'text1': const Color.fromARGB(255, 239, 125, 87),
     'button': const Color.fromARGB(255, 207, 196, 95),
   };
 

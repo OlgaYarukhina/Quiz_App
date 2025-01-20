@@ -47,7 +47,7 @@ class HistoryScreen extends StatelessWidget {
               itemCount: quizzes.length,
               itemBuilder: (context, index) {
                 final quiz = quizzes[index];
-                final result = history[quiz.title] ?? -1; // -1 означає "Not completed"
+                final result = history[quiz.title] ?? -1; // -1 означає що не завершене
 
                 return QuizCard(
                   quiz: quiz,

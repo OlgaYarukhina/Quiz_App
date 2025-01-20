@@ -7,11 +7,6 @@ class QuizStorage {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setInt('$_resultPrefix$quizTitle', score);
   }
-
-  static Future<int> getQuizResult(String quizTitle) async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getInt('$_resultPrefix$quizTitle') ?? -1;
-  }
   
   static Future<Map<String, int>> getAllQuizResults(List<String> quizTitles) async {
     final prefs = await SharedPreferences.getInstance();
@@ -22,3 +17,15 @@ class QuizStorage {
     return results;
   }
 }
+
+
+
+
+
+
+
+
+  // static Future<int> getQuizResult(String quizTitle) async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   return prefs.getInt('$_resultPrefix$quizTitle') ?? -1;
+  // }

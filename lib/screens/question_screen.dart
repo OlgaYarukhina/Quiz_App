@@ -18,6 +18,7 @@ class QuestionScreenState extends State<QuestionScreen>
   late AnimationController _questionController;
   late Animation<Offset> _questionSlideAnimation;
   List<AnimationController> _answerControllers = [];
+  
 
   @override
   void didChangeDependencies() {
@@ -34,7 +35,7 @@ class QuestionScreenState extends State<QuestionScreen>
       end: Offset.zero,
     ).animate(CurvedAnimation(
       parent: _questionController,
-      curve: Curves.easeInOut,
+      curve: Curves.easeInOut, // для плавності анімації
     ));
 
     // Анімації для відповідей

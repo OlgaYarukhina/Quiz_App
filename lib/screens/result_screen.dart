@@ -7,7 +7,8 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final score = args['score'] as int;
     final quizTitle = args['quizTitle'] as String;
 
@@ -16,7 +17,7 @@ class ResultScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Results'),
+        title: const Text('Result'),
         automaticallyImplyLeading: false,
       ),
       body: Center(
@@ -24,14 +25,18 @@ class ResultScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Your Score: $score',
-              style: TextStyle(color: AppColors.colors['text1'], fontSize: 24, fontWeight: FontWeight.bold),
+              'Score: $score',
+              style: TextStyle(
+                  color: AppColors.colors['text1'],
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 60),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.colors['button'],
-                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                 textStyle: const TextStyle(fontSize: 18),
               ),
               onPressed: () {
